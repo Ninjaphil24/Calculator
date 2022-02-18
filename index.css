@@ -1,43 +1,57 @@
-@font-face {
-    font-family:'Orbitron';
-    src: url('https://fonts.googleapis.com/css?family=Orbitron');
-   }
-
-h1 {
-    font-family: "Orbitron", sans-serif;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Gotham Rounded', sans-serif;
+    font-weight: normal;
 }
 
-section {
-    width: 200px;
-    height: 250px;
-    padding: 25px;
-    background-color: rgb(235, 231, 231);
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00aaff, #00ff6c);
 }
 
-#screen {
-    font-family: "Orbitron", sans-serif;
-    font-size: 45px;
-    text-align: right;
-    color: rgb(63, 63, 63);
-    width: 100%;
-    height: 50px;
-    background-color: aqua;
-}
-
-.buttons {
+.calculator-grid {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-button {
-    height: 50px;
-    width: 50px;    
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255,255,255,.75);
 }
 
-button:hover {
+.calculator-grid > button:hover {
+    background-color: rgba(255,255,255,.9)
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255,.75);
+    font-size: 1.5rem;
+}
+.output .current-operand {
     color: white;
-    background-color: blue;
-    transition: 0.2s;
-    cursor: pointer;    
+    font-size: 2.5rem;
 }
